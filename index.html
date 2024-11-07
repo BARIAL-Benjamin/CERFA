@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="https://openclipart.org/image/2400px/svg_to_png/23817/pitr-Kitty-icon.png"
+        type="image/png">
+    <title>CERFA | N° 10103*10</title>
+</head>
+
+<body>
+    <main>
+        <header>
+            <a id="logo_ministere" href="https://travail-emploi.gouv.fr" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Minist%C3%A8re_du_Travail%2C_du_Plein_emploi_et_de_l%E2%80%99Insertion.svg"
+                    alt="Logo Ministère du Travail, de l'Emploie et de l'Insertion">
+            </a>
+            <div class="entete">
+                <h3><strong>Contrat d'apprentissage</strong></h3>
+                <p>(art. L6211-1 et suivants du code du travail)</p>
+                <p>
+                    <strong>(Lire <span class="uppercase">attentivement</span> <a target="_blank"
+                            href="https://idf.drieets.gouv.fr/sites/idf.drieets.gouv.fr/IMG/pdf/notice_cerfa_10103.pdf"
+                            rel="noopener noreferrer">la
+                            notice Cerfa</a> avant de remplir ce
+                        document)</strong>
+                </p>
+            </div>
+            <a id="logo_cerfa" href="https://www.service-public.fr/particuliers/vosdroits/R1319" target="_blank"
+                rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/fr/0/08/Logo_Cerfa.svg" alt="Logo Cerfa">
+                <p>N° 10103*10</p>
+            </a>
+        </header>
+        <form action="/" method="POST">
+            <legend>Mode contractuel de l'apprentissage</legend>
+            <fieldset id="employeur">
+                <section>
+                    <span class="uppercase">l'employeur</span>
+                    <div>
+                        <input type="radio" name="type_employeur" id="type_employeur_prive">
+                        <label for="type_employeur_prive">employeur privé</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="type_employeur" id="type_employeur_public">
+                        <label for="type_employeur_public">employeur « public »*</label>
+                    </div>
+                </section>
+                <section>
+                    <div class="gauche">
+                        <div>
+                            <label for="employeur_name"><strong>Nom et prénom ou dénomination :</strong></label>
+                            <input type="text" id="employeur_name" name="employeur_name"
+                                pattern="[A-zÀ-ÿ -]+ [A-zÀ-ÿ -]+" required>
+                        </div>
+
+                        <p>Adresse de l’établissement d’exécution du contrat :</p>
+
+                        <div>
+                            <label for="num_etablissement">N° :</label>
+                            <input type="number" id="num_etablissement" name="num_etablissement" min="1" max="999"
+                                pattern="[0-9]{1,3}" required>
+                            <label for="voie_etablissement">Voie :</label>
+                            <input type="text" id="voie_etablissement" name="voie_etablissement" pattern="[A-zÀ-ÿ. -]+"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="complement_etablissement">Complément :</label>
+                            <input type="text" id="complement_etablissement" pattern="[0-9A-zÀ-ÿ. -]+"
+                                name="complement_etablissement">
+                        </div>
+
+                        <div>
+                            <label for="zipcode_etablissement">Code postal :</label>
+                            <input type="text" id="zipcode_etablissement" name="zipcode_etablissement"
+                                pattern="[0-9]{5}" required>
+                            <label for="ville_etablissement">Commune :</label>
+                            <input type="text" id="ville_etablissement" name="ville_etablissement"
+                                pattern="[0-9A-zÀ-ÿ -]+" required>
+                        </div>
+
+                        <div>
+                            <label for="tel_etablissement">Téléphone :</label>
+                            <input type="tel" id="tel_etablissement" name="tel_etablissement"
+                                pattern="(?:([+]\d{1,4})[-.\s]?)?(?:[(](\d{1,3})[)][-.\s]?)?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})"
+                                required> <!-- Merci internet pour ce super Regex -->
+                        </div>
+
+                        <div>
+                            <label for="user_mail_etablissement">Courriel :</label>
+                            <input type="text" id="user_mail_etablissement" name="user_mail_etablissement"
+                                pattern="[a-z-.]+" required>
+                            <label for="domaine_mail_etablissement">@</label>
+                            <input type="text" id="domaine_mail_etablissement" name="domaine_mail_etablissement"
+                                pattern="[a-z-.]+\.[a-z]{2,9}" required>
+                        </div>
+
+                    </div>
+                    <div class="droite">
+                        <label for="siret"><strong>N°SIRET</strong> de l'établissement d'exécution du contrat :</label>
+                        <input id="siret" name="siret" type="text" maxlength="14" pattern="[0-9]{14}" required>
+
+                        <label for="employeur_type">Type d’employeur :</label>
+                        <input id="employeur_type" name="employeur_type" type="number" min="21" max="29"
+                            pattern="2[0-9]{1}" required>
+
+
+                        <label for="employeur_specifique">Employeur spécifique :</label>
+                        <input id="employeur_specifique" name="employeur_specifique" type="number" min="0" max="4"
+                            pattern="[0-4]{1}" required>
+
+
+                        <label for="NAF">Code activité de l’entreprise (NAF) :</label>
+                        <input id="NAF" name="NAF" type="text" pattern="[A-Z0-9]{4,5}" required>
+
+
+                        <label for="total_salaries">Effectif total salariés de l’entreprise :</label>
+                        <input id="total_salaries" name="total_salaries" type="number" min="1" max="99999" required>
+
+
+                        <label for="IDCC">Code IDCC de la convention collective applicable :</label>
+                        <input id="IDCC" name="IDCC" type="number" pattern="[0-9]{3,4}" required>
+
+                    </div>
+                    <label for="employeur_secteur_public"><strong>*Pour les employeurs du secteur public,</strong>
+                        adhésion de l’apprenti au régime spécifique d’assurance chômage :<input
+                            id="employeur_secteur_public" name="employeur_secteur_public" type="checkbox" />
+                    </label>
+                </section>
+            </fieldset>
+            <fieldset id="apprenti">
+                <section>
+                    <span class="uppercase">l'apprenti(e)</span>
+                </section>
+                <section>
+                    <label for="apprenti_name"><strong>Nom de naissance de l’apprenti(e) :</strong>
+                        <input id="apprenti_name" name="apprenti_name" type="text" pattern="[A-zÀ-ÿ-]+">
+                    </label>
+                    <label for="apprenti_usage_name"><strong>Nom d’usage :</strong>
+                        <input id="apprenti_usage_name" name="apprenti_usage_name" type="text" pattern="[A-zÀ-ÿ-]+">
+                    </label>
+                    <label for="apprenti_civil_name"><strong>Le premier prénom de l’apprenti(e)</strong> selon l’état
+                        civil :
+                        <input id="apprenti_civil_name" name="apprenti_civil_name" type="text" pattern="[A-zÀ-ÿ-]+">
+                    </label>
+                    <div class="gauche">
+                        <div>
+                            <label for="NIR_apprenti">NIR de l’apprenti(e) :</label>
+                            <input id="NIR_apprenti" name="NIR_apprenti" type="text" pattern="[0-9]{15}">
+                        </div>
+
+                        <p><strong>Adresse de l’apprenti(e) :</strong></p>
+
+                        <div>
+                            <label for="num_apprenti">N° :</label>
+                            <input type="number" id="num_apprenti" name="num_apprenti" min="1" max="999"
+                                pattern="[0-9]{1,3}" required>
+                            <label for="voie_apprenti">Voie :</label>
+                            <input type="text" id="voie_apprenti" name="voie_apprenti" pattern="[A-zÀ-ÿ. -]+" required>
+                        </div>
+
+                        <div>
+                            <label for="complement_apprenti">Complément :</label>
+                            <input type="text" id="complement_apprenti" pattern="[0-9A-zÀ-ÿ. -]+"
+                                name="complement_apprenti">
+                        </div>
+
+                        <div>
+                            <label for="zipcode_apprenti">Code postal :</label>
+                            <input type="text" id="zipcode_apprenti" name="zipcode_apprenti" pattern="[0-9]{5}"
+                                required>
+                            <label for="ville_apprenti">Commune :</label>
+                            <input type="text" id="ville_apprenti" name="ville_apprenti" pattern="[0-9A-zÀ-ÿ -]+"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="tel_apprenti">Téléphone :</label>
+                            <input type="tel" id="tel_apprenti" name="tel_apprenti"
+                                pattern="(?:([+]\d{1,4})[-.\s]?)?(?:[(](\d{1,3})[)][-.\s]?)?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})"
+                                required> <!-- Merci internet pour ce super Regex -->
+                        </div>
+
+                        <div>
+                            <label for="user_mail_apprenti">Courriel :</label>
+                            <input type="text" id="user_mail_apprenti" name="user_mail_apprenti" pattern="[a-z-.]+"
+                                required>
+                            <label for="domaine_mail_apprenti">@</label>
+                            <input type="text" id="domaine_mail_apprenti" name="domaine_mail_apprenti"
+                                pattern="[a-z-.]+\.[a-z]{2,9}" required>
+                        </div>
+
+                        <p><strong>Représentant légal :</strong> <em>(à renseigner si l’apprenti est mineur non
+                                émancipé)</em></p>
+
+                        <div>
+                            <label for="reprentant_name">Nom de naissance et prénom :</label>
+                            <input type="text" id="reprentant_name" name="reprentant_name"
+                                pattern="[A-zÀ-ÿ -]+ [A-zÀ-ÿ -]+">
+                        </div>
+
+                        <div>
+                            <label for="num_representant">N° :</label>
+                            <input type="number" id="num_representant" name="num_representant" min="1" max="999"
+                                pattern="[0-9]{1,3}">
+                            <label for="voie_representant">Voie :</label>
+                            <input type="text" id="voie_representant" name="voie_representant" pattern="[A-zÀ-ÿ. -]+">
+                        </div>
+
+                        <div>
+                            <label for="complement_representant">Complément :</label>
+                            <input type="text" id="complement_representant" pattern="[0-9A-zÀ-ÿ. -]+"
+                                name="complement_representant">
+                        </div>
+
+                        <div>
+                            <label for="zipcode_representant">Code postal :</label>
+                            <input type="text" id="zipcode_representant" name="zipcode_representant" pattern="[0-9]{5}">
+                            <label for="ville_representant">Commune :</label>
+                            <input type="text" id="ville_representant" name="ville_representant"
+                                pattern="[0-9A-zÀ-ÿ -]+">
+                        </div>
+
+                        <div>
+                            <label for="tel_representant">Téléphone :</label>
+                            <input type="tel" id="tel_representant" name="tel_representant"
+                                pattern="(?:([+]\d{1,4})[-.\s]?)?(?:[(](\d{1,3})[)][-.\s]?)?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})">
+                        </div>
+
+                        <div>
+                            <label for="user_mail_representant">Courriel :</label>
+                            <input type="text" id="user_mail_representant" name="user_mail_representant"
+                                pattern="[a-z-.]+">
+                            <label for="domaine_mail_representant">@</label>
+                            <input type="text" id="domaine_mail_representant" name="domaine_mail_representant"
+                                pattern="[a-z-.]+\.[a-z]{2,9}">
+                        </div>
+                    </div>
+                    <div class="droite">
+                        <label for="ddn_apprenti">Date de naissance :</label>
+                        <input id="ddn_apprenti" name="ddn_apprenti" type="date" required>
+
+                        <div>
+                            <label>Sexe :</label>
+                            <input id="Masculin" name="sexe_apprenti" type="radio" required>
+                            <label for="Masculin">M</label>
+                            <input id="Feminin" name="sexe_apprenti" type="radio" required>
+                            <label for="Feminin">F</label>
+                        </div>
+
+                        <label for="departement_naissance_apprenti">Département de naissance :</label>
+                        <input id="departement_naissance_apprenti" name="departement_naissance_apprenti" type="text"
+                            pattern="[0-9]{2,}|[A-zÀ-ÿ -]{3,}" required>
+
+                        <label for="commune_naissance_apprenti">Commune de naissance :</label>
+                        <input id="commune_naissance_apprenti" name="commune_naissance_apprenti" type="text"
+                            pattern="[A-zÀ-ÿ -]+" required>
+
+                        <div>
+                            <label for="nationalite_apprenti">Nationalité :</label>
+                            <input id="nationalite_apprenti" name="nationalite_apprenti" type="number" min="1" max="3"
+                                pattern="[1-3]{1}" required>
+                            <label for="regime_apprenti">Régime social :</label>
+                            <input id="regime_apprenti" name="regime_apprenti" type="number" min="1" max="2"
+                                pattern="[1-2]{1}" required>
+                        </div>
+
+                        <div>
+                            <label for="liste_sportif_apprenti">Déclare être inscrit sur la liste des sportifs de haut
+                                niveau :</label>
+                            <input id="liste_sportif_apprenti_oui" name="liste_sportif_apprenti" type="radio" required>
+                            <label for="liste_sportif_apprenti_oui">Oui</label>
+                            <input id="liste_sportif_apprenti_non" name="liste_sportif_apprenti" type="radio" required>
+                            <label for="liste_sportif_apprenti_non">Non</label>
+                        </div>
+
+                        <div>
+                            <label for="handicap_apprenti">Déclare bénéficier de la reconnaissance travailleur
+                                handicapé :</label>
+                            <input id="handicap_apprenti_oui" name="handicap_apprenti" type="radio" required>
+                            <label for="handicap_apprenti_oui">Oui</label>
+                            <input id="handicap_apprenti_non" name="handicap_apprenti" type="radio" required>
+                            <label for="handicap_apprenti_non">Non</label>
+                        </div>
+
+                        <label for="pre_situation_apprenti">Situation avant ce contrat :</label>
+                        <input id="pre_situation_apprenti" name="pre_situation_apprenti" type="number" min="1" max="10"
+                            pattern="[0-9]{1,2}" required>
+
+                        <div>
+                            <label for="dernier_diplome_apprenti">Dernier diplôme ou titre préparé :</label>
+                            <input id="dernier_diplome_apprenti" name="dernier_diplome_apprenti" type="number" min="10"
+                                max="60" pattern="[0-9]{2}" required>
+
+                            <label for="derniere_classe_apprenti">Dernière classe / année suivie :</label>
+                            <input id="derniere_classe_apprenti" name="derniere_classe_apprenti" type="number" min="1"
+                                max="42" pattern="[0-9]{1,2}" required>
+                        </div>
+
+                        <label for="intitule_diplome_apprenti">Intitulé précis du dernier diplôme ou titre préparé
+                            :</label>
+                        <input id="intitule_diplome_apprenti" name="intitule_diplome_apprenti" type="text"
+                            pattern="[0-9A-zÀ-ÿ .-]+" required>
+
+                        <label for="haut_diplome_apprenti">Diplôme ou titre le plus élevé obtenu :</label>
+                        <input id="haut_diplome_apprenti" name="haut_diplome_apprenti" type="number" min="10" max="60"
+                            pattern="[0-9]{2}" required>
+
+                        <div>
+                            <label for="reprise_entreprise_apprenti">Déclare avoir un projet de création ou de reprise
+                                d’entreprise :</label>
+                            <input id="reprise_entreprise_apprenti_oui" name="reprise_entreprise_apprenti" type="radio"
+                                required>
+                            <label for="reprise_entreprise_apprenti_oui">Oui</label>
+                            <input id="reprise_entreprise_apprenti_non" name="reprise_entreprise_apprenti" type="radio"
+                                required>
+                            <label for="reprise_entreprise_apprenti_non">Non</label>
+                        </div>
+                    </div>
+                </section>
+            </fieldset>
+            <fieldset id="maitre">
+                <section>
+                    <span class="uppercase">le maître d'apprentissage</span>
+                </section>
+                <section>
+                    <div>
+                        <p><strong>Maître d’apprentissage n°1</strong></p>
+                        <label for="maitre_name_1"><strong>Nom de naissance :</strong>
+                            <input id="maitre_name_1" name="maitre_name_1" type="text" pattern="[A-zÀ-ÿ-]+" required>
+                        </label>
+
+                        <label for="maitre_usage_1_name"><strong>Prénom :</strong>
+                            <input id="maitre_usage_1_name" name="maitre_usage_1_name" type="text" pattern="[A-zÀ-ÿ-]+"
+                                required>
+                        </label>
+
+                        <label for="ddn_maitre_1">Date de naissance :
+                            <input id="ddn_maitre_1" name="ddn_maitre_1" type="date" required>
+                        </label>
+
+                        <label for="NIR_maitre_1">NIR :
+                            <input id="NIR_maitre_1" name="NIR_maitre_1" type="text" pattern="[0-9]{15}" required>
+                        </label>
+
+                        <div>
+                            <label for="user_mail_maitre">Courriel :</label>
+                            <input type="text" id="user_mail_maitre" name="user_mail_maitre" pattern="[a-z-.]+"
+                                required>
+                            <label for="domaine_mail_maitre">@</label>
+                            <input type="text" id="domaine_mail_maitre" name="domaine_mail_maitre"
+                                pattern="[a-z-.]+\.[a-z]{2,9}" required>
+                        </div>
+
+                        <label for="emploi_maitre_1">Emploi occupé
+                            <input id="emploi_maitre_1" name="emploi_maitre_1" type="text" pattern="[0-9A-zÀ-ÿ. -]+"
+                                required>
+                        </label>
+
+                        <label for="haut_diplome_maitre_1">Diplôme ou titre le plus élevé obtenu :
+                            <input id="haut_diplome_maitre_1" name="haut_diplome_maitre_1" type="number" min="10"
+                                max="60" pattern="[0-9]{2}" required>
+                        </label>
+
+                        <label for="niveau_diplome_maitre_1">Niveau de diplôme ou titre le plus élevé obtenu :
+                            <input id="niveau_diplome_maitre_1" name="niveau_diplome_maitre_1" type="number" min="0"
+                                max="10" pattern="[0-9]{1,2}" required>
+                        </label>
+                    </div>
+                    <div>
+                        <p><strong>Maître d’apprentissage n°2</strong></p>
+                        <label for="maitre_name_1"><strong>Nom de naissance :</strong>
+                            <input id="maitre_name_1" name="maitre_name_1" type="text" pattern="[A-zÀ-ÿ-]+">
+                        </label>
+
+                        <label for="maitre_usage_1_name"><strong>Prénom :</strong>
+                            <input id="maitre_usage_1_name" name="maitre_usage_1_name" type="text" pattern="[A-zÀ-ÿ-]+">
+                        </label>
+
+                        <label for="ddn_maitre_2">Date de naissance :
+                            <input id="ddn_maitre_2" name="ddn_maitre_2" type="date">
+                        </label>
+
+                        <label for="NIR_maitre_2">NIR :
+                            <input id="NIR_maitre_2" name="NIR_maitre_2" type="text" pattern="[0-9]{15}">
+                        </label>
+
+                        <div>
+                            <label for="user_mail_maitre_2">Courriel :</label>
+                            <input type="text" id="user_mail_maitre_2" name="user_mail_maitre_2" pattern="[a-z-.]+">
+                            <label for="domaine_mail_maitre_2">@</label>
+                            <input type="text" id="domaine_mail_maitre_2" name="domaine_mail_maitre_2"
+                                pattern="[a-z-.]+\.[a-z]{2,9}">
+                        </div>
+
+                        <label for="emploi_maitre_2">Emploi occupé
+                            <input id="emploi_maitre_2" name="emploi_maitre_2" type="text" pattern="[0-9A-zÀ-ÿ. -]+">
+                        </label>
+
+                        <label for="haut_diplome_maitre_2">Diplôme ou titre le plus élevé obtenu :
+                            <input id="haut_diplome_maitre_2" name="haut_diplome_maitre_2" type="number" min="10"
+                                max="60" pattern="[0-9]{2}">
+                        </label>
+
+                        <label for="niveau_diplome_maitre_2">Niveau de diplôme ou titre le plus élevé obtenu :
+                            <input id="niveau_diplome_maitre_2" name="niveau_diplome_maitre_2" type="number" min="0"
+                                max="10" pattern="[0-9]{1,2}" >
+                        </label>
+                    </div>
+                    <label for="employeur_attestation_honneur"><strong><em>L’employeur atteste sur l’honneur que le
+                                maître d’apprentissage répond à l’ensemble des critères d’éligibilité à cette
+                                fonction.</em></strong>
+                        <input id="employeur_attestation_honneur" name="employeur_attestation_honneur" type="checkbox"
+                            required />
+                    </label>
+                </section>
+            </fieldset>
+            <fieldset id="contrat">
+                <section>
+                    <span class="uppercase">le contrat</span>
+                </section>
+                <section>
+                    <div class="gauche">
+                        <label for="type_contrat">Type de contrat ou d'avenant :
+                            <input id="type_contrat" name="type_contrat" type="number" min="11" max="36"
+                                pattern="[0-9]{2}" required>
+                        </label>
+                    </div>
+                    <div class="droite">
+                        <label for="type_derogation">Type de dérogation :
+                            <input id="type_derogation" name="type_derogation" type="number" min="11" max="60"
+                                pattern="[0-9]{2}">
+                            <em>à renseigner si une dérogation existe pour ce contrat</em>
+                        </label>
+                    </div>
+                    <label for="pre_numero_contrat">Numéro du contrat précédent ou du contrat sur lequel porte l’avenant
+                        :
+                        <input id="pre_numero_contrat" name="pre_numero_contrat" type="text" pattern="[a-z0-9]+">
+                    </label>
+                    <div class="middle">
+                        <label for="date_conclusion_contrat">Date de conclusion : <em>(Date de signatures du présent
+                                contrat)</em></label>
+                        <input id="date_conclusion_contrat" name="date_conclusion_contrat" type="date" required>
+
+                        <label for="date_execution_contrat">Date de début d’exécution du contrat :</label>
+                        <input id="date_execution_contrat" name="date_execution_contrat" type="date" required>
+
+                        <label for="date_formation_contrat">Date de début de formation pratique chez l’employeur
+                            :</label>
+                        <input id="date_formation_contrat" name="date_formation_contrat" type="date" required>
+                    </div>
+                    <label for="date_avenant_contrat">Si avenant, date d’effet :
+                        <input id="date_avenant_contrat" name="date_avenant_contrat" type="date">
+                    </label>
+                    <div class="gauche">
+                        <label for="date_fin_contrat">Date de fin du contrat ou de la période d’apprentissage :
+                            <input id="date_fin_contrat" name="date_fin_contrat" type="date" required>
+                        </label>
+                    </div>
+                    <div class="droite">
+                        <p>Durée hebdomadaire du travail :</p>
+                        <input id="duree_contrat_heures" name="duree_contrat_heures" type="number" min="1" max="99"
+                            pattern="[0-9]{1,2}" required> <label for="duree_contrat_heures">heures</label>
+                        <input id="duree_contrat_minutes" name="duree_contrat_minutes" type="number" min="0" max="59"
+                            pattern="[0-9]{1,2}" required> <label for="duree_contrat_minutes">minutes</label>
+                    </div>
+                    <label>
+                        Travail sur machines dangereuses ou exposition à des risques particuliers :
+                        <input id="travail_dangereux_oui" name="travail_dangereux" type="radio" required>
+                        <label for="travail_dangereux_oui">Oui</label>
+
+                        <input id="travail_dangereux_non" name="travail_dangereux" type="radio" required>
+                        <label for="travail_dangereux_non">Non</label>
+                    </label>
+                    <p><strong>Rémunération</strong></p>
+                    <p><em>* Indiquer SMIC ou SMC (salaire minimum conventionnel)</em></p>
+                    <div class="remuneration">
+                        <label for="date_debut_1_contrat_1">1<sup>ère</sup> année, du</label>
+                        <input id="date_debut_1_contrat_1" name="date_debut_1_contrat_1" type="date" required>
+
+                        <label for="date_fin_1_contrat_1">au</label>
+                        <input id="date_fin_1_contrat_1" name="date_fin_1_contrat_1" type="date" required>
+
+                        <label for="pourcentage_1_contrat_1">:</label>
+                        <input id="pourcentage_1_contrat_1" name="pourcentage_1_contrat_1" type="number" required>
+
+                        <label for="base_1_contrat_1">% du</label>
+                        <input id="base_1_contrat_1" name="base_1_contrat_1" type="text" pattern="SMIC|SMC" required>
+
+                        <label for="date_debut_2_contrat_1">* ; du</label>
+                        <input id="date_debut_2_contrat_1" name="date_debut_2_contrat_1" type="date">
+
+                        <label for="date_fin_2_contrat_1">au</label>
+                        <input id="date_fin_2_contrat_1" name="date_fin_2_contrat_1" type="date">
+
+                        <label for="pourcentage_2_contrat_1">:</label>
+                        <input id="pourcentage_2_contrat_1" name="pourcentage_2_contrat_1" type="number">
+
+                        <label for="base_2_contrat_1">% du</label>
+                        <input id="base_2_contrat_1" name="base_2_contrat_1" type="text" pattern="SMIC|SMC">
+                        *
+                    </div>
+                    <div class="remuneration">
+                        <label for="date_debut_1_contrat_2">2<sup>ème</sup> année, du</label>
+                        <input id="date_debut_1_contrat_2" name="date_debut_1_contrat_2" type="date">
+
+                        <label for="date_fin_1_contrat_2">au</label>
+                        <input id="date_fin_1_contrat_2" name="date_fin_1_contrat_2" type="date">
+
+                        <label for="pourcentage_1_contrat_2">:</label>
+                        <input id="pourcentage_1_contrat_2" name="pourcentage_1_contrat_2" type="number">
+
+                        <label for="base_1_contrat_2">% du</label>
+                        <input id="base_1_contrat_2" name="base_1_contrat_2" type="text" pattern="SMIC|SMC">
+
+                        <label for="date_debut_2_contrat_2">* ; du</label>
+                        <input id="date_debut_2_contrat_2" name="date_debut_2_contrat_2" type="date">
+
+                        <label for="date_fin_2_contrat_2">au</label>
+                        <input id="date_fin_2_contrat_2" name="date_fin_2_contrat_2" type="date">
+
+                        <label for="pourcentage_2_contrat_2">:</label>
+                        <input id="pourcentage_2_contrat_2" name="pourcentage_2_contrat_2" type="number">
+
+                        <label for="base_2_contrat_2">% du</label>
+                        <input id="base_2_contrat_2" name="base_2_contrat_2" type="text" pattern="SMIC|SMC">
+                        *
+                    </div>
+                    <div class="remuneration">
+                        <label for="date_debut_1_contrat_3">3<sup>ème</sup> année, du</label>
+                        <input id="date_debut_1_contrat_3" name="date_debut_1_contrat_3" type="date">
+
+                        <label for="date_fin_1_contrat_3">au</label>
+                        <input id="date_fin_1_contrat_3" name="date_fin_1_contrat_3" type="date">
+
+                        <label for="pourcentage_1_contrat_3">:</label>
+                        <input id="pourcentage_1_contrat_3" name="pourcentage_1_contrat_3" type="number">
+
+                        <label for="base_1_contrat_3">% du</label>
+                        <input id="base_1_contrat_3" name="base_1_contrat_3" type="text" pattern="SMIC|SMC">
+
+                        <label for="date_debut_2_contrat_3">* ; du</label>
+                        <input id="date_debut_2_contrat_3" name="date_debut_2_contrat_3" type="date">
+
+                        <label for="date_fin_2_contrat_3">au</label>
+                        <input id="date_fin_2_contrat_3" name="date_fin_2_contrat_3" type="date">
+
+                        <label for="pourcentage_2_contrat_3">:</label>
+                        <input id="pourcentage_2_contrat_3" name="pourcentage_2_contrat_3" type="number">
+
+                        <label for="base_2_contrat_3">% du</label>
+                        <input id="base_2_contrat_3" name="base_2_contrat_3" type="text" pattern="SMIC|SMC">
+                        *
+                    </div>
+                    <div class="remuneration">
+                        <label for="date_debut_1_contrat_4">4<sup>ème</sup> année, du</label>
+                        <input id="date_debut_1_contrat_4" name="date_debut_1_contrat_4" type="date">
+
+                        <label for="date_fin_1_contrat_4">au</label>
+                        <input id="date_fin_1_contrat_4" name="date_fin_1_contrat_4" type="date">
+
+                        <label for="pourcentage_1_contrat_4">:</label>
+                        <input id="pourcentage_1_contrat_4" name="pourcentage_1_contrat_4" type="number">
+
+                        <label for="base_1_contrat_4">% du</label>
+                        <input id="base_1_contrat_4" name="base_1_contrat_4" type="text" pattern="SMIC|SMC">
+
+                        <label for="date_debut_2_contrat_4">* ; du</label>
+                        <input id="date_debut_2_contrat_4" name="date_debut_2_contrat_4" type="date">
+
+                        <label for="date_fin_2_contrat_4">au</label>
+                        <input id="date_fin_2_contrat_4" name="date_fin_2_contrat_4" type="date">
+
+                        <label for="pourcentage_2_contrat_4">:</label>
+                        <input id="pourcentage_2_contrat_4" name="pourcentage_2_contrat_4" type="number">
+
+                        <label for="base_2_contrat_4">% du</label>
+                        <input id="base_2_contrat_4" name="base_2_contrat_4" type="text" pattern="SMIC|SMC">
+                        *
+                    </div>
+                    <div class="gauche">
+                        <div>
+                            <label for="salaire_gros_brut"><strong>Salaite brut mensuel à l'embauche :</strong></label>
+                            <input id="salaire_gros_brut" name="salaire_gros_brut" type="number" required>
+                            <label for="salaire_detail_brut">,</label>
+                            <input id="salaire_detail_brut" name="salaire_detail_brut" type="number" required>€
+                        </div>
+                    </div>
+                    <div class="droite">
+                        <label for="caisse_retraite">Caisse de retraite complémentaire :
+                            <input id="caisse_retraite" name="caisse_retraite" type="text" required>
+                        </label>
+                    </div>
+                    <div class="avantages">
+                        <label for="avantage_repas_gros_nature">Avantages en nature, le cas échéant : Nourriture
+                            :</label>
+                        <input id="avantage_repas_gros_nature" name="avantage_repas_gros_nature" type="number">
+
+                        <label for="avantage_repas_detail_nature">,</label>
+                        <input id="avantage_repas_detail_nature" name="avantage_repas_detail_nature" type="number">
+                        <label for="avantage_repas_detail_nature">€ / repas</label>
+
+                        <label for="avantage_logement_gros_nature">Logement :</label>
+                        <input id="avantage_logement_gros_nature" name="avantage_logement_gros_nature" type="number">
+
+                        <label for="avantage_logement_detail_nature">,</label>
+                        <input id="avantage_logement_detail_nature" name="avantage_logement_detail_nature"
+                            type="number">
+                        <label for="avantage_logement_detail_nature">€ / mois</label>
+
+                        <label for="avantage_autre">Autre :</label>
+                        <input id="avantage_autre" name="avantage_autre" type="checkbox">
+                    </div>
+                </section>
+            </fieldset>
+            <fieldset id="formation">
+                <section>
+                    <span class="uppercase">la formation</span>
+                </section>
+                <section>
+                    <div class="gauche">
+                        <div>
+                            CFA d’entreprise :
+                            <input id="CFA_formation_oui" name="CFA_formation" type="radio" required>
+                            <label for="CFA_formation_oui">Oui</label>
+                            <input id="CFA_formation_non" name="CFA_formation" type="radio" required>
+                            <label for="CFA_formation_non">Non</label>
+                        </div>
+                        <label for="CFA_name">Dénomination du CFA responsable :
+                            <input id="CFA_name" name="CFA_name" type="text" required>
+                        </label>
+                        <label for="CFA_UAI">N° UAI du CFA :
+                            <input id="CFA_UAI" name="CFA_UAI" type="text" pattern="[A-Z0-9]+" required>
+                        </label>
+                        <label for="CFA_SIRET">N° SIRET du CFA :
+                            <input id="CFA_SIRET" name="CFA_SIRET" type="text" maxlength="14" pattern="[0-9]{14}"
+                                required>
+                        </label>
+                        <p><strong>Adresse du CFA responsable :</strong></p>
+                        <div>
+                            <label for="num_CFA">N° :</label>
+                            <input type="number" id="num_CFA" name="num_CFA" min="1" max="999" pattern="[0-9]{1,3}"
+                                required>
+                            <label for="voie_CFA">Voie :</label>
+                            <input type="text" id="voie_CFA" name="voie_CFA" pattern="[A-zÀ-ÿ. -]+" required>
+                        </div>
+                        <div>
+                            <label for="complement_CFA">Complément :</label>
+                            <input type="text" id="complement_CFA" pattern="[0-9A-zÀ-ÿ. -]+" name="complement_CFA">
+                        </div>
+                        <div>
+                            <label for="zipcode_CFA">Code postal :</label>
+                            <input type="text" id="zipcode_CFA" name="zipcode_CFA" pattern="[0-9]{5}" required>
+                            <label for="ville_CFA">Commune :</label>
+                            <input type="text" id="ville_CFA" name="ville_CFA" pattern="[0-9A-zÀ-ÿ -]+" required>
+                        </div>
+                        <label for="CFA_centre_formation">Si le CFA responsable est le lieu de formation principal
+                            cochez la case ci-contre :
+                            <input id="CFA_centre_formation" name="CFA_centre_formation" type="checkbox">
+                        </label>
+                        <p class="VISA">Visa du CFA (cachet et signature du directeur) :</p>
+                    </div>
+                    <div class="droite">
+                        <label for="formation_apprenti">Diplôme ou titre visé par l’apprenti :
+                            <input id="formation_apprenti" name="formation_apprenti" type="number" min="10" max="60"
+                                pattern="[0-9]{2}">
+                        </label>
+                        <label for="code_diplome">Code du diplôme :
+                            <input id="code_diplome" name="code_diplome" type="text" maxlength="9"
+                                pattern="[0-9A-Z]{9}">
+                        </label>
+                        <label for="code_RNCP">Code RNCP :
+                            <input id="code_RNCP" name="code_RNCP" type="text" maxlength="9"
+                                pattern="RNCP[A-Z0-9]{4,5}|RS[0-9A-Z]{4,5}">
+                        </label>
+                        <p><strong>Organisation de la formation en CFA :</strong></p>
+                        <label for="date_debut_formation_CFA">Date de début de formation en CFA :
+                            <input id="date_debut_formation_CFA" name="date_debut_formation_CFA" type="date">
+                        </label>
+                        <label for="date_fin_epreuve">Date prévue de fin des épreuves ou examens :
+                            <input id="date_fin_epreuve" name="date_fin_epreuve" type="date">
+                        </label>
+                        <label for="duree_formation">Durée de la formation :
+                            <input id="duree_formation" name="duree_formation" type="number" pattern="[0-9]{1,3}">
+                            heures
+                        </label>
+                        <p><strong>Lieu principal de réalisation de la formation si différent du CFA responsable
+                                :</strong></p>
+                        <label for="denomination_lieu_formation">Dénomination du lieu de formation principal :
+                            <input id="denomination_lieu_formation" name="denomination_lieu_formation" type="text"
+                                pattern="[A-zÀ-ÿ0-9 .-]+">
+                        </label>
+                        <label for="formation_UAI">N° UAI :
+                            <input id="formation_UAI" name="formation_UAI" type="text" pattern="[A-Z0-9]+">
+                        </label>
+                        <label for="formation_SIRET">N° SIRET :
+                            <input id="formation_SIRET" name="formation_SIRET" type="text" maxlength="14"
+                                pattern="[0-9]{14}">
+                        </label>
+                        <p><strong>Adresse du lieu de formation principal :</strong></p>
+                        <div>
+                            <label for="num_formation">N° :</label>
+                            <input type="number" id="num_formation" name="num_formation" min="1" max="999"
+                                pattern="[0-9]{1,3}" required>
+                            <label for="voie_formation">Voie :</label>
+                            <input type="text" id="voie_formation" name="voie_formation" pattern="[A-zÀ-ÿ. -]+"
+                                required>
+                        </div>
+                        <div>
+                            <label for="complement_formation">Complément :</label>
+                            <input type="text" id="complement_formation" pattern="[0-9A-zÀ-ÿ. -]+"
+                                name="complement_formation">
+                        </div>
+                        <div>
+                            <label for="zipcode_formation">Code postal :</label>
+                            <input type="text" id="zipcode_formation" name="zipcode_formation" pattern="[0-9]{5}"
+                                required>
+                            <label for="ville_formation">Commune :</label>
+                            <input type="text" id="ville_formation" name="ville_formation" pattern="[0-9A-zÀ-ÿ -]+"
+                                required>
+                        </div>
+                    </div>
+                    <label for="employeur_attestation_pj"><strong><em>L’employeur atteste disposer de l’ensemble des
+                                pièces justificatives nécessaires au dépôt du contrat :</em></strong>
+                        <input id="employeur_attestation_pj" name="employeur_attestation_pj" type="checkbox">
+                    </label>
+                    <div class="middle">
+                        <label for="lieu_signature">Fait à :
+                            <input id="lieu_signature" name="lieu_signature" type="text" pattern="[A-zÀ-ÿ0-9-]">
+                        </label>
+                        <p><strong><em>Signature du représentant légal de l’apprenti(e) mineur(e)</em></strong></p>
+                        <p><strong><em>Signature de l’employeur</em></strong></p>
+                        <p><strong><em>Signature de l’apprenti(e)</em></strong></p>
+                    </div>
+                </section>
+            </fieldset>
+            <fieldset id="organisme">
+                <section>
+                    <span class="uppercase">cadre réservé à l'organisme en charge du dépôt de contrat</span>
+                </section>
+                <section>
+                    <div class="gauche">
+                        <label for="organisme_name"><strong>Nom de l’organisme :</strong>
+                            <input id="organisme_name" name="organisme_name" type="text" pattern="[A-Z0-9]+" required>
+                        </label>
+                        <label for="date_reception_dossier">Date de réception du dossier complet :
+                            <input id="date_reception_dossier" name="date_reception_dossier" type="date" required>
+                        </label>
+                        <label for="numero_depot">N° de dépôt :
+                            <input id="numero_depot" name="numero_depot" type="text" pattern="[A-Z0-9]+" required>
+                        </label>
+                    </div>
+                    <div class="droite">
+                        <label for="organisme_SIRET"><strong>N° SIRET de l’organisme :</strong>
+                            <input id="organisme_SIRET" name="organisme_SIRET" type="text" maxlength="14"
+                                pattern="[0-9]{14}" required>
+                        </label>
+                        <label for="date_decision_dossier">Date de la décision :
+                            <input id="date_decision_dossier" name="date_decision_dossier" type="date" required>
+                        </label>
+                        <label for="numero_avenant">Numéro d’avenant :
+                            <input id="numero_avenant" name="numero_avenant" type="text" pattern="[A-Z0-9]+" required>
+                        </label>
+                    </div>
+                </section>
+            </fieldset>
+            <fieldset>
+                <button type="button" id="valider">Valider</button>
+                <button type="button" id="zero">Tout remettre à zéro</button>
+            </fieldset>
+            <div id="submitModal">
+                <p>Valider vous le formulaire ?</p>
+                <div>
+                    <input type="submit" id="submitOui" value="Oui">
+                    <button type="button" id="submitNon">Non</button>
+                </div>
+            </div>
+            <div id="resetModal">
+                <p>Êtes-vous sûr de supprimer le formulaire ?</p>
+                <div>
+                    <input type="reset" id="resetOui" value="Oui">
+                    <button type="button" id="resetNon">Non</button>
+                </div>
+            </div>
+        </form>
+        <footer>
+            <p>
+                <strong>
+                    <em>Pour remplir le contrat et pour plus d’informations sur le traitement des données reportez-vous
+                        à <a target="_blank"
+                            href="https://idf.drieets.gouv.fr/sites/idf.drieets.gouv.fr/IMG/pdf/notice_cerfa_10103.pdf"
+                            rel="noopener noreferrer">la notice FA 14</a>
+                    </em>
+                </strong>
+            </p>
+            <hr>
+        </footer>
+    </main>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
