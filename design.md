@@ -10,7 +10,7 @@ Principes de design
 Utilisation de logiciels comme Figma, Adobe XD ou Sketch.
 Prototypage et tests d’interfaces.
 Design responsive :
-
+11111111111111111111111111111111111111111111111111111111111111111111111111
 Adaptation des sites aux différents appareils (ordinateurs, tablettes, smartphones).
 Techniques CSS pour un design flexible et fluide.
 HTML, CSS et bases de JavaScript :
