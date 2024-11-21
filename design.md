@@ -5,11 +5,7 @@ Introduction au webdesign :
 
 Les bases de l'architecture web.
 Comprendre les besoins des utilisateurs et les objectifs d’un site.
-Principes de design :
-
-Théorie des couleurs, typographie, et gestion de l’espace.
-Création de maquettes et wireframes.
-Outils de conception :
+Principes de design 
 
 Utilisation de logiciels comme Figma, Adobe XD ou Sketch.
 Prototypage et tests d’interfaces.
